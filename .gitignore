@@ -1,3 +1,5 @@
 CMakeLists.txt
 ReadPLY.app
 CMake*
+ReadPLY
+Makefile
