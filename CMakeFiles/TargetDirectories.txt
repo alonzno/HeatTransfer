@@ -1,0 +1,3 @@
+/Users/alonzoaltamirano/Repos/HeatTransfer/CMakeFiles/rebuild_cache.dir
+/Users/alonzoaltamirano/Repos/HeatTransfer/CMakeFiles/edit_cache.dir
+/Users/alonzoaltamirano/Repos/HeatTransfer/CMakeFiles/ReadPLY.dir
