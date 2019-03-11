@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 
 PROJECT(ReadPLY)
-SET(VTK_DIR ~/Desktop/VTK-6.3.0/build)
+SET(VTK_DIR ~/Repos/BUILD-VTK-OLD)
 
 find_package(VTK REQUIRED)
 include(${VTK_USE_FILE})
