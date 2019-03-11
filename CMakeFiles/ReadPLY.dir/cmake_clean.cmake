@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o"
   "ReadPLY.pdb"
-  "ReadPLY.app/Contents/MacOS/ReadPLY"
+  "ReadPLY"
 )
 
 # Per-language clean rules from dependency scanning.
