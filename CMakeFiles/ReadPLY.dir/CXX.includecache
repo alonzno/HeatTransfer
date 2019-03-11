@@ -34,6 +34,18 @@ vtkVersionMacros.h
 
 /Users/alonzoaltamirano/Repos/BUILD-VTK-OLD/Common/ExecutionModel/vtkCommonExecutionModelModule.h
 
+/Users/alonzoaltamirano/Repos/BUILD-VTK-OLD/Filters/Core/vtkFiltersCoreModule.h
+vtkAutoInit.h
+/Users/alonzoaltamirano/Repos/BUILD-VTK-OLD/Filters/Core/vtkAutoInit.h
+
+/Users/alonzoaltamirano/Repos/BUILD-VTK-OLD/Filters/General/vtkFiltersGeneralModule.h
+vtkFiltersCoreModule.h
+/Users/alonzoaltamirano/Repos/BUILD-VTK-OLD/Filters/General/vtkFiltersCoreModule.h
+
+/Users/alonzoaltamirano/Repos/BUILD-VTK-OLD/Filters/Sources/vtkFiltersSourcesModule.h
+vtkFiltersGeneralModule.h
+/Users/alonzoaltamirano/Repos/BUILD-VTK-OLD/Filters/Sources/vtkFiltersGeneralModule.h
+
 /Users/alonzoaltamirano/Repos/BUILD-VTK-OLD/IO/Core/vtkIOCoreModule.h
 
 /Users/alonzoaltamirano/Repos/BUILD-VTK-OLD/IO/Geometry/vtkIOGeometryModule.h
@@ -63,6 +75,8 @@ vtkAutoInit.h
 /Users/alonzoaltamirano/Repos/HeatTransfer/ReadPLY.cxx
 vtkPolyData.h
 -
+vtkSphereSource.h
+-
 vtkPLYReader.h
 -
 vtkSmartPointer.h
@@ -77,6 +91,14 @@ vtkProperty.h
 -
 vtkRenderWindow.h
 -
+vtkCamera.h
+/Users/alonzoaltamirano/Repos/HeatTransfer/vtkCamera.h
+vtkLight.h
+/Users/alonzoaltamirano/Repos/HeatTransfer/vtkLight.h
+vtkImageData.h
+/Users/alonzoaltamirano/Repos/HeatTransfer/vtkImageData.h
+vtkObjectFactory.h
+/Users/alonzoaltamirano/Repos/HeatTransfer/vtkObjectFactory.h
 vtkRenderer.h
 -
 vtkRenderWindowInteractor.h
@@ -91,9 +113,13 @@ vtkCellArray.h
 -
 vtkPointData.h
 -
+vtkPolyDataNormals.h
+-
 vector
 -
 iostream
+-
+time.h
 -
 
 /Users/alonzoaltamirano/Repos/VTK-6.3.0/Common/Core/vtkABI.h
@@ -626,6 +652,14 @@ vtkObject.h
 vtkAbstractArray.h
 /Users/alonzoaltamirano/Repos/VTK-6.3.0/Common/DataModel/vtkAbstractArray.h
 
+/Users/alonzoaltamirano/Repos/VTK-6.3.0/Common/DataModel/vtkImageData.h
+vtkCommonDataModelModule.h
+/Users/alonzoaltamirano/Repos/VTK-6.3.0/Common/DataModel/vtkCommonDataModelModule.h
+vtkDataSet.h
+/Users/alonzoaltamirano/Repos/VTK-6.3.0/Common/DataModel/vtkDataSet.h
+vtkStructuredData.h
+/Users/alonzoaltamirano/Repos/VTK-6.3.0/Common/DataModel/vtkStructuredData.h
+
 /Users/alonzoaltamirano/Repos/VTK-6.3.0/Common/DataModel/vtkPointData.h
 vtkCommonDataModelModule.h
 /Users/alonzoaltamirano/Repos/VTK-6.3.0/Common/DataModel/vtkCommonDataModelModule.h
@@ -650,6 +684,12 @@ vtkCellTypes.h
 vtkCellLinks.h
 /Users/alonzoaltamirano/Repos/VTK-6.3.0/Common/DataModel/vtkCellLinks.h
 
+/Users/alonzoaltamirano/Repos/VTK-6.3.0/Common/DataModel/vtkStructuredData.h
+vtkCommonDataModelModule.h
+/Users/alonzoaltamirano/Repos/VTK-6.3.0/Common/DataModel/vtkCommonDataModelModule.h
+vtkObject.h
+/Users/alonzoaltamirano/Repos/VTK-6.3.0/Common/DataModel/vtkObject.h
+
 /Users/alonzoaltamirano/Repos/VTK-6.3.0/Common/ExecutionModel/vtkAlgorithm.h
 vtkCommonExecutionModelModule.h
 /Users/alonzoaltamirano/Repos/VTK-6.3.0/Common/ExecutionModel/vtkCommonExecutionModelModule.h
@@ -669,6 +709,18 @@ vtkAlgorithm.h
 /Users/alonzoaltamirano/Repos/VTK-6.3.0/Common/ExecutionModel/vtkAlgorithm.h
 vtkPolyData.h
 /Users/alonzoaltamirano/Repos/VTK-6.3.0/Common/ExecutionModel/vtkPolyData.h
+
+/Users/alonzoaltamirano/Repos/VTK-6.3.0/Filters/Core/vtkPolyDataNormals.h
+vtkFiltersCoreModule.h
+/Users/alonzoaltamirano/Repos/VTK-6.3.0/Filters/Core/vtkFiltersCoreModule.h
+vtkPolyDataAlgorithm.h
+/Users/alonzoaltamirano/Repos/VTK-6.3.0/Filters/Core/vtkPolyDataAlgorithm.h
+
+/Users/alonzoaltamirano/Repos/VTK-6.3.0/Filters/Sources/vtkSphereSource.h
+vtkFiltersSourcesModule.h
+/Users/alonzoaltamirano/Repos/VTK-6.3.0/Filters/Sources/vtkFiltersSourcesModule.h
+vtkPolyDataAlgorithm.h
+/Users/alonzoaltamirano/Repos/VTK-6.3.0/Filters/Sources/vtkPolyDataAlgorithm.h
 
 /Users/alonzoaltamirano/Repos/VTK-6.3.0/IO/Core/vtkAbstractPolyDataReader.h
 vtkIOCoreModule.h
@@ -721,6 +773,18 @@ vtkPropCollection.h
 /Users/alonzoaltamirano/Repos/VTK-6.3.0/Rendering/Core/vtkPropCollection.h
 vtkActor.h
 /Users/alonzoaltamirano/Repos/VTK-6.3.0/Rendering/Core/vtkActor.h
+
+/Users/alonzoaltamirano/Repos/VTK-6.3.0/Rendering/Core/vtkCamera.h
+vtkRenderingCoreModule.h
+/Users/alonzoaltamirano/Repos/VTK-6.3.0/Rendering/Core/vtkRenderingCoreModule.h
+vtkObject.h
+/Users/alonzoaltamirano/Repos/VTK-6.3.0/Rendering/Core/vtkObject.h
+
+/Users/alonzoaltamirano/Repos/VTK-6.3.0/Rendering/Core/vtkLight.h
+vtkRenderingCoreModule.h
+/Users/alonzoaltamirano/Repos/VTK-6.3.0/Rendering/Core/vtkRenderingCoreModule.h
+vtkObject.h
+/Users/alonzoaltamirano/Repos/VTK-6.3.0/Rendering/Core/vtkObject.h
 
 /Users/alonzoaltamirano/Repos/VTK-6.3.0/Rendering/Core/vtkMapper.h
 vtkRenderingCoreModule.h

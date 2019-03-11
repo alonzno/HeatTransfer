@@ -7,6 +7,9 @@ CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o: /Users/alonzoaltamirano/Repos/BUILD-VTK-OL
 CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o: /Users/alonzoaltamirano/Repos/BUILD-VTK-OLD/Common/Core/vtkVersionMacros.h
 CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o: /Users/alonzoaltamirano/Repos/BUILD-VTK-OLD/Common/DataModel/vtkCommonDataModelModule.h
 CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o: /Users/alonzoaltamirano/Repos/BUILD-VTK-OLD/Common/ExecutionModel/vtkCommonExecutionModelModule.h
+CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o: /Users/alonzoaltamirano/Repos/BUILD-VTK-OLD/Filters/Core/vtkFiltersCoreModule.h
+CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o: /Users/alonzoaltamirano/Repos/BUILD-VTK-OLD/Filters/General/vtkFiltersGeneralModule.h
+CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o: /Users/alonzoaltamirano/Repos/BUILD-VTK-OLD/Filters/Sources/vtkFiltersSourcesModule.h
 CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o: /Users/alonzoaltamirano/Repos/BUILD-VTK-OLD/IO/Core/vtkIOCoreModule.h
 CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o: /Users/alonzoaltamirano/Repos/BUILD-VTK-OLD/IO/Geometry/vtkIOGeometryModule.h
 CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o: /Users/alonzoaltamirano/Repos/BUILD-VTK-OLD/IO/Legacy/vtkIOLegacyModule.h
@@ -84,12 +87,16 @@ CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o: /Users/alonzoaltamirano/Repos/VTK-6.3.0/Co
 CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o: /Users/alonzoaltamirano/Repos/VTK-6.3.0/Common/DataModel/vtkDataSet.h
 CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o: /Users/alonzoaltamirano/Repos/VTK-6.3.0/Common/DataModel/vtkDataSetAttributes.h
 CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o: /Users/alonzoaltamirano/Repos/VTK-6.3.0/Common/DataModel/vtkFieldData.h
+CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o: /Users/alonzoaltamirano/Repos/VTK-6.3.0/Common/DataModel/vtkImageData.h
 CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o: /Users/alonzoaltamirano/Repos/VTK-6.3.0/Common/DataModel/vtkPointData.h
 CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o: /Users/alonzoaltamirano/Repos/VTK-6.3.0/Common/DataModel/vtkPointSet.h
 CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o: /Users/alonzoaltamirano/Repos/VTK-6.3.0/Common/DataModel/vtkPolyData.h
+CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o: /Users/alonzoaltamirano/Repos/VTK-6.3.0/Common/DataModel/vtkStructuredData.h
 CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o: /Users/alonzoaltamirano/Repos/VTK-6.3.0/Common/ExecutionModel/vtkAlgorithm.h
 CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o: /Users/alonzoaltamirano/Repos/VTK-6.3.0/Common/ExecutionModel/vtkImageAlgorithm.h
 CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o: /Users/alonzoaltamirano/Repos/VTK-6.3.0/Common/ExecutionModel/vtkPolyDataAlgorithm.h
+CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o: /Users/alonzoaltamirano/Repos/VTK-6.3.0/Filters/Core/vtkPolyDataNormals.h
+CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o: /Users/alonzoaltamirano/Repos/VTK-6.3.0/Filters/Sources/vtkSphereSource.h
 CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o: /Users/alonzoaltamirano/Repos/VTK-6.3.0/IO/Core/vtkAbstractPolyDataReader.h
 CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o: /Users/alonzoaltamirano/Repos/VTK-6.3.0/IO/Legacy/vtkDataReader.h
 CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o: /Users/alonzoaltamirano/Repos/VTK-6.3.0/IO/Legacy/vtkPolyDataReader.h
@@ -98,6 +105,8 @@ CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o: /Users/alonzoaltamirano/Repos/VTK-6.3.0/Re
 CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o: /Users/alonzoaltamirano/Repos/VTK-6.3.0/Rendering/Core/vtkAbstractMapper3D.h
 CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o: /Users/alonzoaltamirano/Repos/VTK-6.3.0/Rendering/Core/vtkActor.h
 CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o: /Users/alonzoaltamirano/Repos/VTK-6.3.0/Rendering/Core/vtkActorCollection.h
+CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o: /Users/alonzoaltamirano/Repos/VTK-6.3.0/Rendering/Core/vtkCamera.h
+CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o: /Users/alonzoaltamirano/Repos/VTK-6.3.0/Rendering/Core/vtkLight.h
 CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o: /Users/alonzoaltamirano/Repos/VTK-6.3.0/Rendering/Core/vtkMapper.h
 CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o: /Users/alonzoaltamirano/Repos/VTK-6.3.0/Rendering/Core/vtkPolyDataMapper.h
 CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o: /Users/alonzoaltamirano/Repos/VTK-6.3.0/Rendering/Core/vtkProp.h
