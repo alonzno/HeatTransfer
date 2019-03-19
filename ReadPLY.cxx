@@ -138,8 +138,6 @@ class vtkBunnyMapper : public vtkOpenGLPolyDataMapper
        glDisable(GL_LIGHT7);
    }
 
-
-
 };
 
 int main ( int argc, char *argv[] )

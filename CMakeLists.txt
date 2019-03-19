@@ -1,12 +1,12 @@
 cmake_minimum_required(VERSION 2.8)
 
 PROJECT(ReadPLY)
-SET(VTK_DIR /Users/alonzoaltamirano/Repos/BUILD-VTK-OLD)
+SET(VTK_DIR /home/ben/Desktop/VTK-6.3.0/build)
 
 find_package(VTK REQUIRED)
 include(${VTK_USE_FILE})
 
-add_executable(ReadPLY MACOSX_BUNDLE ReadPLY.cxx)
+add_executable(ReadPLY ReadPLY.cxx)
 
 if(VTK_LIBRARIES)
   target_link_libraries(ReadPLY ${VTK_LIBRARIES})
