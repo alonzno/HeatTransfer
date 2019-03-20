@@ -189,6 +189,7 @@ class vtkBunnyMapper : public vtkOpenGLPolyDataMapper
     virtual void RenderPiece(vtkRenderer *ren, vtkActor *act) {
         RemoveVTKOpenGLStateSideEffects();
         SetupLight();
+        cerr << "Rendering" << endl;
 
         glEnable(GL_COLOR_MATERIAL);
         glDisable(GL_TEXTURE_1D);
@@ -199,10 +200,14 @@ class vtkBunnyMapper : public vtkOpenGLPolyDataMapper
             unsigned char *buff;
             time_t timer;
             time(&timer);
+            int rv = std::rand();
+            
+            cerr << "Time: " << timer << endl;
+            cerr << "RV: " << rv << endl;
             
             for (Triangle t: tris) {
                 for (int i = 0; i < 3; i++) {
-                    glColor3ub(timer%255, timer%255, timer%255); //TODO Revise this
+                    glColor3ub(rv%255, rv%255, rv%255); //TODO Revise this
                     glNormal3f(t.normals[i][0], t.normals[i][1], t.normals[i][2]);
                     glVertex3f(t.X[i], t.Y[i], t.Z[i]);
                 }       
@@ -251,14 +256,19 @@ class vtkTimerCallback1 : public vtkCommand
                 ++(this->TimerCount);
             }
             std::cout << this->TimerCount << std::endl;
-            //actor->SetPosition(this->TimerCount, this->TimerCount, 0);
-            //actor->GetMapper() -> Update();
-            //actor->GetMapper() -> Modified();
-            //actor->Modified();
+
             vtkRenderWindowInteractor *iren = vtkRenderWindowInteractor::SafeDownCast(caller);
+            
+            // Advance the simulation
+            
+            // Replace the tempeeratures at all points
+            
+            // Update sim
+            
+            actor -> GetMapper() -> Modified();
+            actor -> GetMapper() -> Update();
             iren -> GetRenderWindow() -> Render();
-            iren -> Render();
-            //iren -> Update();
+
         }
     private:
         int TimerCount;
@@ -291,7 +301,6 @@ int main ( int argc, char *argv[] )
   vtkSmartPointer<vtkActor> actor =
     vtkSmartPointer<vtkActor>::New();
   actor->SetMapper(mapper);
-  //actor->GetPositionCoordinate()->SetCoordinateSystemToNormalizedViewport();
 
   vtkSmartPointer<vtkRenderer> renderer =
     vtkSmartPointer<vtkRenderer>::New();
@@ -306,12 +315,10 @@ int main ( int argc, char *argv[] )
 
   renderer->AddActor(actor);
   renderer->SetBackground(0.1804,0.5451,0.3412); // Sea green
-  //renderer->ResetCamera();
   
   renderWindow->Render();
 
   //renderWindow->SetFullScreen(true);
-  //renderWindow->Render();
   vtkSmartPointer<vtkInteractorStyleTrackballCamera> style = vtkSmartPointer<vtkInteractorStyleTrackballCamera>::New(); 
   renderWindowInteractor->SetInteractorStyle(style);
 
@@ -326,27 +333,5 @@ int main ( int argc, char *argv[] )
   std::cout << "timerId: " << timerId << std::endl;
 
   renderWindowInteractor->Start();
-  return EXIT_SUCCESS;
-
-  //renderWindowInteractor->Start();
-  {
-      cerr << "print" << endl;
-      //sphere->Modified();
-      //mapper->RenderPiece(renderer, actor);
-      //mapper->Modified();
-      //actor->Modified();
-
-      //mapper->Update();
-      sphere->Update();
-      //renderer->Update();
-      renderer->Render();
-      //actor->Update();
-      //renderWindow->Update();
-      //renderWindow->Render();
-      //std::thread c (callback, renderer, renderWindow, renderWindowInteractor, mapper, actor);
-      //std::thread c (callback);
-      renderWindowInteractor->Start();
-  }
-
   return EXIT_SUCCESS;
 }
