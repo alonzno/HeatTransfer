@@ -1,3 +1,7 @@
+#if !(__has_feature(cxx_variadic_templates))
+#define _LIBCPP_HAS_NO_VARIADICS
+#endif
+
 #include <vtkPolyData.h>
 #include <vtkSphereSource.h>
 #include <vtkPLYReader.h>
@@ -14,17 +18,20 @@
 #include <vtkRenderer.h>
 #include <vtkRenderWindowInteractor.h>
 #include <vtkPolyDataReader.h>
+#include <vtkInteractorStyleTrackballCamera.h>
 
 #include <vtkFloatArray.h>
 #include <vtkPoints.h>
 #include <vtkCellArray.h>
 #include <vtkPointData.h>
 #include <vtkPolyDataNormals.h>
+#include <vtkCommand.h>
 //#include <vtkNormals.h>
 
 #include <vector>
 #include <iostream>
 #include <time.h>
+//#include <thread>
 
 using namespace std;
 
@@ -208,6 +215,57 @@ class vtkBunnyMapper : public vtkOpenGLPolyDataMapper
 
 vtkStandardNewMacro(vtkBunnyMapper);
 
+void callback(vtkRenderer *ren, vtkRenderWindow *renWin, 
+              vtkRenderWindowInteractor *winInt,
+              vtkBunnyMapper *mapper, vtkActor *actor) {
+    std::string s;
+    while (true) {
+        cerr << "Runing" << endl;
+        std::cin >> s;
+        if (s == "a") {
+            cerr << "okay" << endl;
+            //mapper->RenderPiece(ren, actor);
+            mapper->Update();
+            actor->Modified();
+            mapper->Modified();
+
+            ren->Render();
+            renWin->Render();
+            winInt->Render();
+            
+        }
+    }
+}
+
+class vtkTimerCallback1 : public vtkCommand 
+{
+    public:
+        static vtkTimerCallback1 *New() {
+            vtkTimerCallback1 *cb = new vtkTimerCallback1;
+            cb->TimerCount = 0;
+            return cb;
+        }
+
+        virtual void Execute(vtkObject *caller, unsigned long eventId, void *vtkNotUsed(callData)) {
+            if (vtkCommand::TimerEvent == eventId) {
+                ++(this->TimerCount);
+            }
+            std::cout << this->TimerCount << std::endl;
+            //actor->SetPosition(this->TimerCount, this->TimerCount, 0);
+            //actor->GetMapper() -> Update();
+            //actor->GetMapper() -> Modified();
+            //actor->Modified();
+            vtkRenderWindowInteractor *iren = vtkRenderWindowInteractor::SafeDownCast(caller);
+            iren -> GetRenderWindow() -> Render();
+            iren -> Render();
+            //iren -> Update();
+        }
+    private:
+        int TimerCount;
+    public:
+        vtkActor *actor;
+};
+
 int main ( int argc, char *argv[] )
 {
   if(argc != 2)
@@ -222,6 +280,8 @@ int main ( int argc, char *argv[] )
       vtkSmartPointer<vtkSphereSource>::New();
   sphere->SetThetaResolution(100);
   sphere->SetPhiResolution(50);
+  sphere -> SetCenter(0.0, 0.0, 0.0);
+  sphere->Update();
 
   // Visualize
   vtkSmartPointer<vtkBunnyMapper> mapper =
@@ -231,6 +291,7 @@ int main ( int argc, char *argv[] )
   vtkSmartPointer<vtkActor> actor =
     vtkSmartPointer<vtkActor>::New();
   actor->SetMapper(mapper);
+  //actor->GetPositionCoordinate()->SetCoordinateSystemToNormalizedViewport();
 
   vtkSmartPointer<vtkRenderer> renderer =
     vtkSmartPointer<vtkRenderer>::New();
@@ -245,9 +306,47 @@ int main ( int argc, char *argv[] )
 
   renderer->AddActor(actor);
   renderer->SetBackground(0.1804,0.5451,0.3412); // Sea green
-
+  //renderer->ResetCamera();
+  
   renderWindow->Render();
+
+  //renderWindow->SetFullScreen(true);
+  //renderWindow->Render();
+  vtkSmartPointer<vtkInteractorStyleTrackballCamera> style = vtkSmartPointer<vtkInteractorStyleTrackballCamera>::New(); 
+  renderWindowInteractor->SetInteractorStyle(style);
+
+  renderWindowInteractor->Initialize();
+
+  vtkSmartPointer<vtkTimerCallback1> cb =
+      vtkSmartPointer<vtkTimerCallback1>::New();
+  cb->actor = actor;
+  renderWindowInteractor -> AddObserver(vtkCommand::TimerEvent, cb);
+
+  int timerId = renderWindowInteractor -> CreateRepeatingTimer(100);
+  std::cout << "timerId: " << timerId << std::endl;
+
   renderWindowInteractor->Start();
+  return EXIT_SUCCESS;
+
+  //renderWindowInteractor->Start();
+  {
+      cerr << "print" << endl;
+      //sphere->Modified();
+      //mapper->RenderPiece(renderer, actor);
+      //mapper->Modified();
+      //actor->Modified();
+
+      //mapper->Update();
+      sphere->Update();
+      //renderer->Update();
+      renderer->Render();
+      //actor->Update();
+      //renderWindow->Update();
+      //renderWindow->Render();
+      //std::thread c (callback, renderer, renderWindow, renderWindowInteractor, mapper, actor);
+      //std::thread c (callback);
+      renderWindowInteractor->Start();
+  }
 
   return EXIT_SUCCESS;
 }

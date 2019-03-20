@@ -7,6 +7,7 @@ find_package(VTK REQUIRED)
 include(${VTK_USE_FILE})
 
 add_executable(ReadPLY ReadPLY.cxx)
+target_compile_options(ReadPLY PRIVATE -std=c++11)
 
 if(VTK_LIBRARIES)
   target_link_libraries(ReadPLY ${VTK_LIBRARIES})
