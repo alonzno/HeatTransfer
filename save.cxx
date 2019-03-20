@@ -14,31 +14,19 @@
 #include <vtkRenderer.h>
 #include <vtkRenderWindowInteractor.h>
 #include <vtkPolyDataReader.h>
-#include <vtkInteractorStyleTrackballCamera.h>
 
 #include <vtkFloatArray.h>
 #include <vtkPoints.h>
 #include <vtkCellArray.h>
 #include <vtkPointData.h>
 #include <vtkPolyDataNormals.h>
-#include <vtkCommand.h>
+//#include <vtkNormals.h>
 
 #include <vector>
 #include <iostream>
-#include <stdlib.h>
 #include <time.h>
 
-#include "sim.hxx"
-
-#define HT_SIZE 128
-
 using namespace std;
-
-void movePt(double *pt) {
-    pt[0] = (pt[0] - (-0.09468989819288253784)) / (0.06100910156965255737 - (-0.09468989819288253784)) * (HT_SIZE-1);
-    pt[1] = (pt[1] - (0.03298740088939666748)) / (0.187321007251739502 - (0.03298740088939666748)) * (HT_SIZE-1);
-    pt[2] = (pt[2] - (-0.06187359988689422607)) / (0.05879969894886016846 - (-0.06187359988689422607)) * (HT_SIZE-1);
-}
 
 class Triangle 
 {
@@ -65,11 +53,14 @@ GetTriangles(std::string inputFilename) {
     }
 
     vtkPolyData *pd = reader->GetOutput();
+        cerr << "Hit 53" << endl;
 
     int numTris = pd->GetNumberOfCells();
     vtkPoints *pts = pd->GetPoints();
+        cerr << "Hit 57" << endl;
     vtkCellArray *cells = pd->GetPolys();
     
+        cerr << "Hit 61" << endl;
     vtkSmartPointer<vtkPolyDataNormals> normalGenerator = vtkSmartPointer<vtkPolyDataNormals>::New();
     #if VTK_MAJOR_VERSION <= 5
     normalGenerator->SetInput(pd);
@@ -79,8 +70,20 @@ GetTriangles(std::string inputFilename) {
     normalGenerator->ComputePointNormalsOn();
     normalGenerator->ComputeCellNormalsOff();
     normalGenerator->Update();
+    /*
+    // Optional settings
+    normalGenerator->SetFeatureAngle(0.1);
+    normalGenerator->SetSplitting(1);
+    normalGenerator->SetConsistency(0);
+    normalGenerator->SetAutoOrientNormals(0);
+    normalGenerator->SetComputePointNormals(1);
+    normalGenerator->SetComputeCellNormals(0);
+    normalGenerator->SetFlipNormals(0);
+    normalGenerator->SetNonManifoldTraversal(1);
+    */
 
     pd = normalGenerator->GetOutput();
+        cerr << "Hit 63" << endl;
 
     vtkFloatArray *n = (vtkFloatArray *) pd->GetPointData()->GetNormals();
     float *normals = n->GetPointer(0);
@@ -88,7 +91,6 @@ GetTriangles(std::string inputFilename) {
     std::vector<Triangle> tris(numTris);
     vtkIdType npts;
     vtkIdType *ptIds;
-    
     int idx;
     for (idx = 0, cells->InitTraversal(); cells->GetNextCell(npts, ptIds); idx++) {
         if (npts != 3) {
@@ -97,40 +99,31 @@ GetTriangles(std::string inputFilename) {
         }
         double *pt = NULL;
         pt = pts->GetPoint(ptIds[0]);
-        
         tris[idx].X[0] = pt[0];
         tris[idx].Y[0] = pt[1];
         tris[idx].Z[0] = pt[2];
-        
         tris[idx].normals[0][0] = normals[3*ptIds[0]+0];
         tris[idx].normals[0][1] = normals[3*ptIds[0]+1];
         tris[idx].normals[0][2] = normals[3*ptIds[0]+2];
         
-        tris[idx].fieldValue[0] = 100.0;  //TODO FIX THIS;
+        tris[idx].fieldValue[0] = 1.0;  //TODO FIX THIS;
         pt = pts->GetPoint(ptIds[1]);
-        
-        
         tris[idx].X[1] = pt[0];
         tris[idx].Y[1] = pt[1];
         tris[idx].Z[1] = pt[2];
-        
         tris[idx].normals[1][0] = normals[3*ptIds[1]+0];
         tris[idx].normals[1][1] = normals[3*ptIds[1]+1];
         tris[idx].normals[1][2] = normals[3*ptIds[1]+2];
-        tris[idx].fieldValue[1] = 100.0;  //TODO FIX THIS;
+        tris[idx].fieldValue[1] = 1.0;  //TODO FIX THIS;
         pt = pts->GetPoint(ptIds[2]);
-        
         tris[idx].X[2] = pt[0];
         tris[idx].Y[2] = pt[1];
         tris[idx].Z[2] = pt[2];
-        
         tris[idx].normals[2][0] = normals[3*ptIds[2]+0];
         tris[idx].normals[2][1] = normals[3*ptIds[2]+1];
         tris[idx].normals[2][2] = normals[3*ptIds[2]+2];
-        tris[idx].fieldValue[2] = 100.0;  //TODO FIX THIS;
+        tris[idx].fieldValue[2] = 1.0;  //TODO FIX THIS;
     }
-    
-
 
     cerr << "Finished getting" << endl;
 
@@ -155,8 +148,8 @@ class vtkBunnyMapper : public vtkOpenGLPolyDataMapper
         
         void RemoveVTKOpenGLStateSideEffects()
         {
-     float INFINITYo[4] = { 0, 0, 0, 1 };
-     glLightModelfv(GL_LIGHT_MODEL_AMBIENT, INFINITYo);
+     float Info[4] = { 0, 0, 0, 1 };
+     glLightModelfv(GL_LIGHT_MODEL_AMBIENT, Info);
      float ambient[4] = { 1,1, 1, 1.0 };
      glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, ambient);
      float diffuse[4] = { 1, 1, 1, 1.0 };
@@ -164,7 +157,6 @@ class vtkBunnyMapper : public vtkOpenGLPolyDataMapper
      float specular[4] = { 1, 1, 1, 1.0 };
      glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, specular);
    }
-
 
 
    void SetupLight(void)
@@ -187,108 +179,34 @@ class vtkBunnyMapper : public vtkOpenGLPolyDataMapper
        glDisable(GL_LIGHT7);
    }
 
-    void SetUpTexture(){
-	GLubyte Texture3[9] = {
-	255, 0, 0,
-	255, 255, 0,
-	0, 0, 255, 
-	};
-        glTexImage1D(GL_TEXTURE_1D, 0, GL_RGB, 3, 0, GL_RGB, GL_UNSIGNED_BYTE, Texture3);
-        glEnable(GL_COLOR_MATERIAL);
-	glTexParameterf(GL_TEXTURE_1D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-        initialized = true;
-
-}
     virtual void RenderPiece(vtkRenderer *ren, vtkActor *act) {
         RemoveVTKOpenGLStateSideEffects();
         SetupLight();
 
+        glEnable(GL_COLOR_MATERIAL);
+        glDisable(GL_TEXTURE_1D);
         
-        cerr << "Rendering" << endl;
-
-	if (!initialized){
-		SetUpTexture();
-	}
-	glEnable(GL_TEXTURE_1D);
-	float ambient[3] = {1, 1, 1};
-	glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, ambient);
+        // Write all the triangles
         glBegin(GL_TRIANGLES);
         {   
+            unsigned char *buff;
+            time_t timer;
+            time(&timer);
             
             for (Triangle t: tris) {
                 for (int i = 0; i < 3; i++) {
-                    
+                    glColor3ub(timer%255, timer%255, timer%255); //TODO Revise this
                     glNormal3f(t.normals[i][0], t.normals[i][1], t.normals[i][2]);
-		    glTexCoord1d((t.fieldValue[i]+100.0)/200.0); //TODO Revise thi
                     glVertex3f(t.X[i], t.Y[i], t.Z[i]);
                 }       
             }       
         }     
         glEnd();
-	glDisable(GL_TEXTURE_1D);
 
     }
 };
 
 vtkStandardNewMacro(vtkBunnyMapper);
-
-HeatTransfer ht(HT_SIZE, 0.0);
-
-class vtkTimerCallback1 : public vtkCommand 
-{
-    public:
-        static vtkTimerCallback1 *New() {
-            vtkTimerCallback1 *cb = new vtkTimerCallback1;
-            cb->TimerCount = 0;
-            return cb;
-        }
-    
-        void UpdateMapper(vtkBunnyMapper *mapper) {
-            float a;
-            double *d = (double *) malloc(sizeof(double) * 3);
-            for (int j = 0; j < mapper -> tris.size(); j++) {
-
-                for (int i = 0; i < 3; i++) {
-                    d[0] = mapper -> tris[j].X[i] + 0;
-                    d[1] = mapper -> tris[j].Y[i] + 0;
-                    d[2] = mapper -> tris[j].Z[i] + 0;
-                    
-                    movePt(d);
-                    
-                    a = ht.getHeat(d[0], d[1], d[2]);
-                    if (isnan(a)) {
-                        exit(1);
-                    }
-
-                    mapper -> tris[j].fieldValue[i] = a;
-                }
-            }
-            free(d);
-        }
-
-        virtual void Execute(vtkObject *caller, unsigned long eventId, void *vtkNotUsed(callData)) {
-            if (vtkCommand::TimerEvent == eventId) {
-                ++(this->TimerCount);
-            }
-            std::cout << this->TimerCount << std::endl;
-            ht.Advance();
-
-            vtkRenderWindowInteractor *iren = vtkRenderWindowInteractor::SafeDownCast(caller);
-            
-            UpdateMapper( (vtkBunnyMapper *) actor -> GetMapper());
-
-            actor -> GetMapper() -> Modified();
-            actor -> GetMapper() -> Update();
-            iren -> GetRenderWindow() -> Render();
-
-        }
-  
-    private:
-        int TimerCount;
-    public:
-        vtkActor *actor;
-
-};
 
 int main ( int argc, char *argv[] )
 {
@@ -305,8 +223,7 @@ int main ( int argc, char *argv[] )
   sphere->SetThetaResolution(100);
   sphere->SetPhiResolution(50);
 
-  sphere->Update();
-
+  // Visualize
   vtkSmartPointer<vtkBunnyMapper> mapper =
     vtkSmartPointer<vtkBunnyMapper>::New();
   mapper->SetInputConnection(sphere->GetOutputPort());
@@ -328,27 +245,9 @@ int main ( int argc, char *argv[] )
 
   renderer->AddActor(actor);
   renderer->SetBackground(0.1804,0.5451,0.3412); // Sea green
-  
+
   renderWindow->Render();
-
-  vtkSmartPointer<vtkInteractorStyleTrackballCamera> style = vtkSmartPointer<vtkInteractorStyleTrackballCamera>::New(); 
-  renderWindowInteractor->SetInteractorStyle(style);
-
-  renderWindowInteractor->Initialize();
-
-  vtkSmartPointer<vtkTimerCallback1> cb =
-      vtkSmartPointer<vtkTimerCallback1>::New();
-  cb->actor = actor;
-    
-    vtkSmartPointer<vtkCamera> camera = vtkSmartPointer<vtkCamera>::New();
-    renderer->SetActiveCamera(camera);
-    
-  renderWindowInteractor -> AddObserver(vtkCommand::TimerEvent, cb);
-    
-  int timerId = renderWindowInteractor -> CreateRepeatingTimer(100);
-  std::cout << "timerId: " << timerId << std::endl;
-
   renderWindowInteractor->Start();
-
+  
   return EXIT_SUCCESS;
 }
