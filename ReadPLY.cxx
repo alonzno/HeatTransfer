@@ -30,7 +30,7 @@
 
 #include "sim.hxx"
 
-#define HT_SIZE 64
+#define HT_SIZE 128
 
 using namespace std;
 
@@ -106,7 +106,7 @@ GetTriangles(std::string inputFilename) {
         tris[idx].normals[0][1] = normals[3*ptIds[0]+1];
         tris[idx].normals[0][2] = normals[3*ptIds[0]+2];
         
-        tris[idx].fieldValue[0] = -100.0;  //TODO FIX THIS;
+        tris[idx].fieldValue[0] = 100.0;  //TODO FIX THIS;
         pt = pts->GetPoint(ptIds[1]);
         
         tris[idx].X[1] = pt[0];
@@ -116,7 +116,7 @@ GetTriangles(std::string inputFilename) {
         tris[idx].normals[1][0] = normals[3*ptIds[1]+0];
         tris[idx].normals[1][1] = normals[3*ptIds[1]+1];
         tris[idx].normals[1][2] = normals[3*ptIds[1]+2];
-        tris[idx].fieldValue[1] = -100.0;  //TODO FIX THIS;
+        tris[idx].fieldValue[1] = 100.0;  //TODO FIX THIS;
         pt = pts->GetPoint(ptIds[2]);
         
         tris[idx].X[2] = pt[0];
@@ -126,10 +126,8 @@ GetTriangles(std::string inputFilename) {
         tris[idx].normals[2][0] = normals[3*ptIds[2]+0];
         tris[idx].normals[2][1] = normals[3*ptIds[2]+1];
         tris[idx].normals[2][2] = normals[3*ptIds[2]+2];
-        tris[idx].fieldValue[2] = -100.0;  //TODO FIX THIS;
+        tris[idx].fieldValue[2] = 100.0;  //TODO FIX THIS;
     }
-    
-
 
     cerr << "Finished getting" << endl;
 
@@ -188,11 +186,11 @@ class vtkBunnyMapper : public vtkOpenGLPolyDataMapper
 
     void SetUpTexture(){
 	GLubyte Texture3[15] = {
-	238, 56, 35,
-	245, 237, 46,
-	66, 190, 216,
-	55, 181, 74,
 	130, 78, 160,
+	55, 181, 74,
+	66, 190, 216,
+	245, 237, 46,
+	238, 56, 35,
 	};
         glTexImage1D(GL_TEXTURE_1D, 0, GL_RGB, 5, 0, GL_RGB, GL_UNSIGNED_BYTE, Texture3);
         glEnable(GL_COLOR_MATERIAL);
