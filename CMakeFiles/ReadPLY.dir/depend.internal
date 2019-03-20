@@ -71,12 +71,16 @@ CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o
  /home/ben/Desktop/VTK-6.3.0/Common/DataModel/vtkDataSet.h
  /home/ben/Desktop/VTK-6.3.0/Common/DataModel/vtkDataSetAttributes.h
  /home/ben/Desktop/VTK-6.3.0/Common/DataModel/vtkFieldData.h
+ /home/ben/Desktop/VTK-6.3.0/Common/DataModel/vtkImageData.h
  /home/ben/Desktop/VTK-6.3.0/Common/DataModel/vtkPointData.h
  /home/ben/Desktop/VTK-6.3.0/Common/DataModel/vtkPointSet.h
  /home/ben/Desktop/VTK-6.3.0/Common/DataModel/vtkPolyData.h
+ /home/ben/Desktop/VTK-6.3.0/Common/DataModel/vtkStructuredData.h
  /home/ben/Desktop/VTK-6.3.0/Common/ExecutionModel/vtkAlgorithm.h
  /home/ben/Desktop/VTK-6.3.0/Common/ExecutionModel/vtkImageAlgorithm.h
  /home/ben/Desktop/VTK-6.3.0/Common/ExecutionModel/vtkPolyDataAlgorithm.h
+ /home/ben/Desktop/VTK-6.3.0/Filters/Core/vtkPolyDataNormals.h
+ /home/ben/Desktop/VTK-6.3.0/Filters/Sources/vtkSphereSource.h
  /home/ben/Desktop/VTK-6.3.0/IO/Core/vtkAbstractPolyDataReader.h
  /home/ben/Desktop/VTK-6.3.0/IO/Legacy/vtkDataReader.h
  /home/ben/Desktop/VTK-6.3.0/IO/Legacy/vtkPolyDataReader.h
@@ -85,6 +89,8 @@ CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o
  /home/ben/Desktop/VTK-6.3.0/Rendering/Core/vtkAbstractMapper3D.h
  /home/ben/Desktop/VTK-6.3.0/Rendering/Core/vtkActor.h
  /home/ben/Desktop/VTK-6.3.0/Rendering/Core/vtkActorCollection.h
+ /home/ben/Desktop/VTK-6.3.0/Rendering/Core/vtkCamera.h
+ /home/ben/Desktop/VTK-6.3.0/Rendering/Core/vtkLight.h
  /home/ben/Desktop/VTK-6.3.0/Rendering/Core/vtkMapper.h
  /home/ben/Desktop/VTK-6.3.0/Rendering/Core/vtkPolyDataMapper.h
  /home/ben/Desktop/VTK-6.3.0/Rendering/Core/vtkProp.h
@@ -106,6 +112,9 @@ CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o
  /home/ben/Desktop/VTK-6.3.0/build/Common/Core/vtkVersionMacros.h
  /home/ben/Desktop/VTK-6.3.0/build/Common/DataModel/vtkCommonDataModelModule.h
  /home/ben/Desktop/VTK-6.3.0/build/Common/ExecutionModel/vtkCommonExecutionModelModule.h
+ /home/ben/Desktop/VTK-6.3.0/build/Filters/Core/vtkFiltersCoreModule.h
+ /home/ben/Desktop/VTK-6.3.0/build/Filters/General/vtkFiltersGeneralModule.h
+ /home/ben/Desktop/VTK-6.3.0/build/Filters/Sources/vtkFiltersSourcesModule.h
  /home/ben/Desktop/VTK-6.3.0/build/IO/Core/vtkIOCoreModule.h
  /home/ben/Desktop/VTK-6.3.0/build/IO/Geometry/vtkIOGeometryModule.h
  /home/ben/Desktop/VTK-6.3.0/build/IO/Legacy/vtkIOLegacyModule.h

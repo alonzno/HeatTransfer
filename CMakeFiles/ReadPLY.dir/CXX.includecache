@@ -536,6 +536,14 @@ vtkObject.h
 vtkAbstractArray.h
 /home/ben/Desktop/VTK-6.3.0/Common/DataModel/vtkAbstractArray.h
 
+/home/ben/Desktop/VTK-6.3.0/Common/DataModel/vtkImageData.h
+vtkCommonDataModelModule.h
+/home/ben/Desktop/VTK-6.3.0/Common/DataModel/vtkCommonDataModelModule.h
+vtkDataSet.h
+/home/ben/Desktop/VTK-6.3.0/Common/DataModel/vtkDataSet.h
+vtkStructuredData.h
+/home/ben/Desktop/VTK-6.3.0/Common/DataModel/vtkStructuredData.h
+
 /home/ben/Desktop/VTK-6.3.0/Common/DataModel/vtkPointData.h
 vtkCommonDataModelModule.h
 /home/ben/Desktop/VTK-6.3.0/Common/DataModel/vtkCommonDataModelModule.h
@@ -560,6 +568,12 @@ vtkCellTypes.h
 vtkCellLinks.h
 /home/ben/Desktop/VTK-6.3.0/Common/DataModel/vtkCellLinks.h
 
+/home/ben/Desktop/VTK-6.3.0/Common/DataModel/vtkStructuredData.h
+vtkCommonDataModelModule.h
+/home/ben/Desktop/VTK-6.3.0/Common/DataModel/vtkCommonDataModelModule.h
+vtkObject.h
+/home/ben/Desktop/VTK-6.3.0/Common/DataModel/vtkObject.h
+
 /home/ben/Desktop/VTK-6.3.0/Common/ExecutionModel/vtkAlgorithm.h
 vtkCommonExecutionModelModule.h
 /home/ben/Desktop/VTK-6.3.0/Common/ExecutionModel/vtkCommonExecutionModelModule.h
@@ -579,6 +593,18 @@ vtkAlgorithm.h
 /home/ben/Desktop/VTK-6.3.0/Common/ExecutionModel/vtkAlgorithm.h
 vtkPolyData.h
 /home/ben/Desktop/VTK-6.3.0/Common/ExecutionModel/vtkPolyData.h
+
+/home/ben/Desktop/VTK-6.3.0/Filters/Core/vtkPolyDataNormals.h
+vtkFiltersCoreModule.h
+/home/ben/Desktop/VTK-6.3.0/Filters/Core/vtkFiltersCoreModule.h
+vtkPolyDataAlgorithm.h
+/home/ben/Desktop/VTK-6.3.0/Filters/Core/vtkPolyDataAlgorithm.h
+
+/home/ben/Desktop/VTK-6.3.0/Filters/Sources/vtkSphereSource.h
+vtkFiltersSourcesModule.h
+/home/ben/Desktop/VTK-6.3.0/Filters/Sources/vtkFiltersSourcesModule.h
+vtkPolyDataAlgorithm.h
+/home/ben/Desktop/VTK-6.3.0/Filters/Sources/vtkPolyDataAlgorithm.h
 
 /home/ben/Desktop/VTK-6.3.0/IO/Core/vtkAbstractPolyDataReader.h
 vtkIOCoreModule.h
@@ -631,6 +657,18 @@ vtkPropCollection.h
 /home/ben/Desktop/VTK-6.3.0/Rendering/Core/vtkPropCollection.h
 vtkActor.h
 /home/ben/Desktop/VTK-6.3.0/Rendering/Core/vtkActor.h
+
+/home/ben/Desktop/VTK-6.3.0/Rendering/Core/vtkCamera.h
+vtkRenderingCoreModule.h
+/home/ben/Desktop/VTK-6.3.0/Rendering/Core/vtkRenderingCoreModule.h
+vtkObject.h
+/home/ben/Desktop/VTK-6.3.0/Rendering/Core/vtkObject.h
+
+/home/ben/Desktop/VTK-6.3.0/Rendering/Core/vtkLight.h
+vtkRenderingCoreModule.h
+/home/ben/Desktop/VTK-6.3.0/Rendering/Core/vtkRenderingCoreModule.h
+vtkObject.h
+/home/ben/Desktop/VTK-6.3.0/Rendering/Core/vtkObject.h
 
 /home/ben/Desktop/VTK-6.3.0/Rendering/Core/vtkMapper.h
 vtkRenderingCoreModule.h
@@ -772,6 +810,18 @@ vtkVersionMacros.h
 
 /home/ben/Desktop/VTK-6.3.0/build/Common/ExecutionModel/vtkCommonExecutionModelModule.h
 
+/home/ben/Desktop/VTK-6.3.0/build/Filters/Core/vtkFiltersCoreModule.h
+vtkAutoInit.h
+/home/ben/Desktop/VTK-6.3.0/build/Filters/Core/vtkAutoInit.h
+
+/home/ben/Desktop/VTK-6.3.0/build/Filters/General/vtkFiltersGeneralModule.h
+vtkFiltersCoreModule.h
+/home/ben/Desktop/VTK-6.3.0/build/Filters/General/vtkFiltersCoreModule.h
+
+/home/ben/Desktop/VTK-6.3.0/build/Filters/Sources/vtkFiltersSourcesModule.h
+vtkFiltersGeneralModule.h
+/home/ben/Desktop/VTK-6.3.0/build/Filters/Sources/vtkFiltersGeneralModule.h
+
 /home/ben/Desktop/VTK-6.3.0/build/IO/Core/vtkIOCoreModule.h
 
 /home/ben/Desktop/VTK-6.3.0/build/IO/Geometry/vtkIOGeometryModule.h
@@ -801,6 +851,8 @@ vtkAutoInit.h
 /home/ben/Documents/CIS/431/final/HeatTransfer/ReadPLY.cxx
 vtkPolyData.h
 -
+vtkSphereSource.h
+-
 vtkPLYReader.h
 -
 vtkSmartPointer.h
@@ -815,6 +867,14 @@ vtkProperty.h
 -
 vtkRenderWindow.h
 -
+vtkCamera.h
+/home/ben/Documents/CIS/431/final/HeatTransfer/vtkCamera.h
+vtkLight.h
+/home/ben/Documents/CIS/431/final/HeatTransfer/vtkLight.h
+vtkImageData.h
+/home/ben/Documents/CIS/431/final/HeatTransfer/vtkImageData.h
+vtkObjectFactory.h
+/home/ben/Documents/CIS/431/final/HeatTransfer/vtkObjectFactory.h
 vtkRenderer.h
 -
 vtkRenderWindowInteractor.h
@@ -829,8 +889,12 @@ vtkCellArray.h
 -
 vtkPointData.h
 -
+vtkPolyDataNormals.h
+-
 vector
 -
 iostream
+-
+time.h
 -
 
