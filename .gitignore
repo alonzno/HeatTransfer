@@ -1,6 +1,12 @@
 CMakeLists.txt
 ReadPLY.app
 CMake*
+<<<<<<< HEAD
 ReadPLY
 Makefile
 run_bunny.sh
+=======
+cmake*
+/CMakeFiles/*
+Makefile
+>>>>>>> ben

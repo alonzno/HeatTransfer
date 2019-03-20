@@ -189,6 +189,8 @@ class vtkBunnyMapper : public vtkOpenGLPolyDataMapper
     virtual void RenderPiece(vtkRenderer *ren, vtkActor *act) {
         RemoveVTKOpenGLStateSideEffects();
         SetupLight();
+
+        
         cerr << "Rendering" << endl;
 
         glEnable(GL_COLOR_MATERIAL);
@@ -274,7 +276,10 @@ class vtkTimerCallback1 : public vtkCommand
         int TimerCount;
     public:
         vtkActor *actor;
+
 };
+
+vtkStandardNewMacro(vtkBunnyMapper);
 
 int main ( int argc, char *argv[] )
 {
@@ -283,15 +288,17 @@ int main ( int argc, char *argv[] )
     std::cout << "Usage: " << argv[0] << "  Filename(.ply)" << std::endl;
     return EXIT_FAILURE;
     }
-
+  
   std::string inputFilename = argv[1];
 
   vtkSmartPointer<vtkSphereSource> sphere =
       vtkSmartPointer<vtkSphereSource>::New();
   sphere->SetThetaResolution(100);
   sphere->SetPhiResolution(50);
+
   sphere -> SetCenter(0.0, 0.0, 0.0);
   sphere->Update();
+
 
   // Visualize
   vtkSmartPointer<vtkBunnyMapper> mapper =
@@ -333,5 +340,6 @@ int main ( int argc, char *argv[] )
   std::cout << "timerId: " << timerId << std::endl;
 
   renderWindowInteractor->Start();
+
   return EXIT_SUCCESS;
 }
