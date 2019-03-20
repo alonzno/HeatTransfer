@@ -4,6 +4,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <math.h>
+#include <omp.h>
 
 float lerp(float x, float x1, float x2, float q00, float q01){
     if (x2 == x1){
@@ -26,15 +27,14 @@ class HeatTransfer
     float BFL;
     
     public:
-    HeatTransfer (int _n, int _BFL) {
+    HeatTransfer (int _n, float _BFL) {
         n = _n;
         BFL = _BFL;
         
         float c = 0.1;
-        float d_s = 1/(n+1);
-        float d_t = (d_s*d_s)/(4*c);
+        float d_t = 1/(4*c);
         
-        coef = c * d_t / (d_s * d_s);
+        coef = c * d_t;
         
         input_temp = (float ***) malloc(sizeof(float **) * (n+2));
         output_temp = (float ***) malloc(sizeof(float **) * (n+2));
@@ -48,22 +48,25 @@ class HeatTransfer
                     if (i == 0 || i == n+1 ||
                         j == 0 || j == n+1 ||
                         k == 0 || k == n+1) {
-                        input_temp[i][j][k] = -100;
-                        output_temp[i][j][k] = -100;
+                        input_temp[i][j][k] = -100.0;
+                        output_temp[i][j][k] = -100.0;
                     }
                     else {
-                        input_temp[i][j][k] = 100;
-                        output_temp[i][j][k] = 100;
+                        input_temp[i][j][k] = 100.0;
+                        output_temp[i][j][k] = 100.0;
                     }
                 }
             }
         }
     }
     void Advance() {
+        std::cerr << "Advancing" << std::endl;
+        //for (int m = 0 ; m < 1; m++) {
         for (int i = 1; i < n+1; i++) {
             for (int j = 1; j < n+1; j++) {
                 for (int k = 1; k < n+1; k++) {
                     output_temp[i][j][k] = input_temp[i][j][k] + coef * (input_temp[i-1][j][k] + input_temp[i+1][j][k] + input_temp[i][j-1][k] + input_temp[i][j+1][k] + input_temp[i][j][k-1] + input_temp[i][j][k+1] - 6.0 * input_temp[i][j][k]);
+//                    std::cerr << output_temp[i][j][k] << std::endl;
                 }
             }
         }
@@ -74,6 +77,8 @@ class HeatTransfer
                 }
             }
         }
+        std::cerr << "Advanced" << std::endl;
+        //}
     }
     
     float getHeat(float x, float y, float z) {
@@ -104,6 +109,7 @@ class HeatTransfer
         float z0 = lerp(z, floor(z), ceil(z), y0, y1);
         
         //fprintf(stderr, "z = %f\n", z0);
+        //std::cerr << "Heating" << std::endl;
         return z0;
     }
 };
