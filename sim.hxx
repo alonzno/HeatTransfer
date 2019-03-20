@@ -4,7 +4,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <math.h>
-#include <omp.h>
+//#include <omp.h>
 
 float lerp(float x, float x1, float x2, float q00, float q01){
     if (x2 == x1){
@@ -38,6 +38,7 @@ class HeatTransfer
         
         input_temp = (float ***) malloc(sizeof(float **) * (n+2));
         output_temp = (float ***) malloc(sizeof(float **) * (n+2));
+        //#pragma omp parallel for
         for (int i = 0; i < n+2; i++) {
             input_temp[i] = (float **) malloc(sizeof(float *) * (n+2));
             output_temp[i] = (float **) malloc(sizeof(float *) * (n+2));

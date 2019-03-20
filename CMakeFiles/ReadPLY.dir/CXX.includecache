@@ -113,6 +113,8 @@ vtkPolyDataReader.h
 -
 vtkInteractorStyleTrackballCamera.h
 -
+vtkObjectBase.h
+-
 vtkFloatArray.h
 -
 vtkPoints.h
@@ -142,8 +144,6 @@ iostream
 stdlib.h
 -
 math.h
--
-omp.h
 -
 
 /Users/alonzoaltamirano/Repos/VTK-6.3.0/Common/Core/vtkABI.h

@@ -1,6 +1,6 @@
-#if !(__has_feature(cxx_variadic_templates))
-#define _LIBCPP_HAS_NO_VARIADICS
-#endif
+//#if !(__has_feature(cxx_variadic_templates))
+//#define _LIBCPP_HAS_NO_VARIADICS
+//#endif
 
 #include <vtkPolyData.h>
 #include <vtkSphereSource.h>
@@ -19,6 +19,7 @@
 #include <vtkRenderWindowInteractor.h>
 #include <vtkPolyDataReader.h>
 #include <vtkInteractorStyleTrackballCamera.h>
+#include <vtkObjectBase.h>
 
 #include <vtkFloatArray.h>
 #include <vtkPoints.h>

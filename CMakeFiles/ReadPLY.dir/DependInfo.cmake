@@ -6,7 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/alonzoaltamirano/Repos/HeatTransfer/ReadPLY.cxx" "/Users/alonzoaltamirano/Repos/HeatTransfer/CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o"
   )
-set(CMAKE_CXX_COMPILER_ID "Clang")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX

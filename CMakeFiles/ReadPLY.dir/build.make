@@ -60,15 +60,15 @@ include CMakeFiles/ReadPLY.dir/flags.make
 CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o: CMakeFiles/ReadPLY.dir/flags.make
 CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o: ReadPLY.cxx
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/alonzoaltamirano/Repos/HeatTransfer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o -c /Users/alonzoaltamirano/Repos/HeatTransfer/ReadPLY.cxx
+	/usr/local/bin/g++-8  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReadPLY.dir/ReadPLY.cxx.o -c /Users/alonzoaltamirano/Repos/HeatTransfer/ReadPLY.cxx
 
 CMakeFiles/ReadPLY.dir/ReadPLY.cxx.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReadPLY.dir/ReadPLY.cxx.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/alonzoaltamirano/Repos/HeatTransfer/ReadPLY.cxx > CMakeFiles/ReadPLY.dir/ReadPLY.cxx.i
+	/usr/local/bin/g++-8 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/alonzoaltamirano/Repos/HeatTransfer/ReadPLY.cxx > CMakeFiles/ReadPLY.dir/ReadPLY.cxx.i
 
 CMakeFiles/ReadPLY.dir/ReadPLY.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReadPLY.dir/ReadPLY.cxx.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alonzoaltamirano/Repos/HeatTransfer/ReadPLY.cxx -o CMakeFiles/ReadPLY.dir/ReadPLY.cxx.s
+	/usr/local/bin/g++-8 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alonzoaltamirano/Repos/HeatTransfer/ReadPLY.cxx -o CMakeFiles/ReadPLY.dir/ReadPLY.cxx.s
 
 # Object files for target ReadPLY
 ReadPLY_OBJECTS = \
