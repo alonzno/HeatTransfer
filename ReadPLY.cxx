@@ -36,7 +36,7 @@
 
 #include "sim.hxx"
 
-#define HT_SIZE 512
+#define HT_SIZE 256
 
 using namespace std;
 
@@ -275,7 +275,7 @@ class vtkBunnyMapper : public vtkOpenGLPolyDataMapper
 
 vtkStandardNewMacro(vtkBunnyMapper);
 
-HeatTransfer ht(512, 0.0);
+HeatTransfer ht(256, 0.0);
 
 class vtkTimerCallback1 : public vtkCommand 
 {
@@ -414,7 +414,7 @@ int main ( int argc, char *argv[] )
     
   renderWindowInteractor -> AddObserver(vtkCommand::TimerEvent, cb);
     
-  int timerId = renderWindowInteractor -> CreateRepeatingTimer(100);
+  int timerId = renderWindowInteractor -> CreateRepeatingTimer(500);
   std::cout << "timerId: " << timerId << std::endl;
 
   renderWindowInteractor->Start();
